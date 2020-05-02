@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.linalg import inv
 
-from Station import Station, c_lum
+from LocalGPS.Station import Station, c_lum
 
 
 def pdot(u,v):
