@@ -12,11 +12,12 @@ class Network (object):
       self.lstat = []
       
    def addStation(self, s):
-      self.lstat.append(self)
+      self.lstat.append(s)
    
    def createStation(self, x,y,z):
-      self.lstat.append(Station(x,y,z))
-      
+      stat = Station(x,y,z)
+      self.addStation(stat)
+
    def simulate(self, x,y,z,t):
       n = len(self.lstat)
       tk = np.empty(n)
