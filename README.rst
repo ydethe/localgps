@@ -1,33 +1,26 @@
-=============
-SystemControl
-=============
+========
+LocalGPS
+========
 
 
-.. image:: https://img.shields.io/pypi/v/SystemControl.svg
-        :target: https://pypi.python.org/pypi/SystemControl
+.. image:: https://img.shields.io/pypi/v/LocalGPS.svg
+        :target: https://pypi.python.org/pypi/LocalGPS
 
-.. image:: https://readthedocs.org/projects/systemcontrol/badge/?version=latest
-        :target: https://systemcontrol.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/localgps/badge/?version=latest
+        :target: https://localgps.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
-.. image:: https://gitlab.com/ydethe/systemcontrol/badges/master/pipeline.svg
-   :target: https://gitlab.com/ydethe/systemcontrol/pipelines
+.. image:: https://gitlab.com/ydethe/localgps/badges/master/pipeline.svg
+   :target: https://gitlab.com/ydethe/localgps/pipelines
    
 
-A library to simulate a closed-loop system. Includes :
-
-* Kalman filter
-* Mahony and Madgwick estimators
-* PID controller
-* FIR filter
-* system simulation
-* sensor simulation (with bias and noise)
+A library to compute the position of a receiver
 
 
 Free software: MIT license
 
-Documentation: https://systemcontrol.readthedocs.io.
+Documentation: https://localgps.readthedocs.io.
 
 
 Features
