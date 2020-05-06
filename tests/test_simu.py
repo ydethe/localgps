@@ -18,7 +18,7 @@ class TestSimu (unittest.TestCase):
         net.createStation(d0,0,d0)
         net.createStation(d0,d0,d0)
         net.createStation(0,0,d0)
-
+        
         x0=100.
         y0=-2*d0
         z0=50.
