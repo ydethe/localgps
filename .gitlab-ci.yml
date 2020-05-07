@@ -10,16 +10,21 @@ cache:
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y python-dev python-pip ruby-dev
+  - apt-get install -y python3-dev python3-pip ruby-dev
   - export PIP_CACHE_DIR="/opt/cache/pip"
-  - python -V  # Print out python version for debugging
-  - pip install --upgrade pip
+  - python3 -V  # Print out python version for debugging
+  - pip3 install --upgrade pip
   - echo $CI_COMMIT_TAG
   - bundle install
 
+stages:
+  - test
+  - deploy
+  
 pytest:
+  stage: test
   script:
-    - pip install tox setuptools docutils
+    - pip3 install tox setuptools docutils
     - tox -e py
   artifacts:
     paths:
@@ -29,27 +34,27 @@ pytest:
       junit: test-results/*.xml
 
 flake8:
+  stage: test
   script:
-    - pip install tox setuptools docutils
+    - pip3 install tox setuptools docutils
     - tox -e flake8
   artifacts:
     paths:
       - test-results
 
 rtd_doc:
+  stage: test
   script:
-    - pip install -r docs/requirements.txt
-    - python setup.py develop
-    - python setup.py doc
+    - pip3 install -r docs/requirements.txt
+    - python3 setup.py develop
+    - python3 setup.py doc
     - mv docs/_build/html htmldoc
   artifacts:
     paths:
       - htmldoc
 
 pages:
-  # dependencies:
-  #   - pytest
-  #   - rtd_doc
+  stage: deploy
   script:
     - mkdir -p public
     - mv htmlcov public/
