@@ -10,8 +10,8 @@ image: continuumio/miniconda3:latest
 # them in a virtualenv and cache it as well.
 cache:
   paths:
-  - pip-cache
-  - vendor/
+    - pip-cache
+    - vendor/
 
 
 # include:
@@ -63,16 +63,16 @@ rtd_doc:
 pages:
   stage: test
   dependencies:
-  - pytest
-  - rtd_doc
+    - pytest
+    - rtd_doc
   script:
-  - mkdir -p public
-  - mv htmlcov public/
-  - mv htmldoc public/
-  - bundle exec jekyll build -d public
+    - mkdir -p public
+    - mv htmlcov public/
+    - mv htmldoc public/
+    - bundle exec jekyll build -d public
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
 
