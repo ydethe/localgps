@@ -17,7 +17,7 @@ before_script:
   - echo $CI_COMMIT_TAG
   - bundle install
 
-test:
+pytest:
   script:
     - pip install tox setuptools docutils
     - tox -e py
@@ -47,9 +47,9 @@ rtd_doc:
       - htmldoc
 
 pages:
-  dependencies:
-    - test
-    - rtd_doc
+  # dependencies:
+  #   - pytest
+  #   - rtd_doc
   script:
     - mkdir -p public
     - mv htmlcov public/
