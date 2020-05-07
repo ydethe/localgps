@@ -28,7 +28,7 @@ stages:
   - test
   - deploy
 
-test:
+pytest:
   stage: test
   script:
     - pip install tox setuptools docutils
@@ -49,7 +49,7 @@ flake8:
     paths:
       - test-results
 
-doc:
+rtd_doc:
   stage: test
   script:
     - pip install -r docs/requirements.txt
@@ -61,9 +61,10 @@ doc:
       - htmldoc
 
 pages:
+  stage: test
   dependencies:
-  - test
-  - doc
+  - pytest
+  - rtd_doc
   script:
   - mkdir -p public
   - mv htmlcov public/
