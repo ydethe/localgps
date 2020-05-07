@@ -15,7 +15,6 @@ before_script:
   - python3 -V  # Print out python version for debugging
   - pip3 install --upgrade pip
   - echo $CI_COMMIT_TAG
-  - bundle install
 
 stages:
   - test
@@ -59,7 +58,6 @@ pages:
     - mkdir -p public
     - mv htmlcov public/
     - mv htmldoc public/
-    - bundle exec jekyll build -d public
   artifacts:
     paths:
       - public
