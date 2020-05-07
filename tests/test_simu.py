@@ -3,11 +3,14 @@ import unittest
 import numpy as np
 
 from LocalGPS.Network import Network
+from LocalGPS.Receiver import Receiver
 
 
 class TestSimu (unittest.TestCase):
     def test_simu(self):
         net = Network()
+        rec = Receiver()
+
         d0 = 1000.
 
         net.createStation(0,0,0)
@@ -25,7 +28,7 @@ class TestSimu (unittest.TestCase):
         t0=0.
 
         tk = net.simulate(x0,y0,z0,t0)
-        x,y,z,t = net.locate(tk)
+        x,y,z,t = rec.locate(tk)
         
         self.assertAlmostEqual(x,x0, delta=0.01)
         self.assertAlmostEqual(y,y0, delta=0.01)
